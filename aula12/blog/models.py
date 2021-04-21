@@ -11,3 +11,16 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    comment = models.CharField(max_length=140)
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments')
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('home')
+
+    def __str__(self):
+        return self.comment

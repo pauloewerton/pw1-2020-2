@@ -46,3 +46,16 @@ header h1 a {
 .post-entry h2 a:hover {
     color: red;
 }
+
+.comments-count {
+    color: green;
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+.comment {
+    background-color: gainsboro;
+    font-size: 0.9em;
+    margin-top: 2px;
+    width: 40%;
+}

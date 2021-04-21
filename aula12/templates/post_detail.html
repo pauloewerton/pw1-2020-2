@@ -7,4 +7,12 @@
     </div>
     <p><a href="{% url 'post_edit' post.pk %}">+ Edit Blog Post</a></p>
     <p><a href="{% url 'post_delete' post.pk %}">+ Delete Blog Post</a></p>
+    <div>
+        {% for comment in post.comments.all %}
+            <p class="comment">
+                <span>{{ comment.author }} commented: </span>
+                {{ comment }}
+            </p>
+        {% endfor %}
+    </div>
 {% endblock content %}

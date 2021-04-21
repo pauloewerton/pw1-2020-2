@@ -5,6 +5,7 @@
         <div class="post-entry">
             <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.body }}</p>
+            <p class="comments-count">{{ post.comments.all.count }} comments</p>
         </div>
     {% endfor %}
 {% endblock content %}

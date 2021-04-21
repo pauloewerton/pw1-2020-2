@@ -11,6 +11,11 @@ class BlogListView(ListView):
     template_name = 'home.html'
     context_object_name = 'posts'
 
+    ### Desconmente para filtrar posts por autor
+    #def get_queryset(self):
+    #    user = self.request.user
+    #    return Post.objects.filter(author=user)
+
 class BlogDetailView(LoginRequiredMixin, DetailView):
     model = Post
     template_name = 'post_detail.html'
@@ -51,3 +56,14 @@ class BlogDeleteView(LoginRequiredMixin, DeleteView):
             raise PermissionDenied
 
         return super().dispatch(request, *args, **kwargs)
+
+### Exemplo view com múltiplos modelos
+
+#class BlogDetailView(DetailView):
+#    template_name = 'post_detail.html'
+#
+#    def get_context_data(self, **kwargs):
+#        context = super().get_context_data(**kwargs)
+#        context['posts'] = Post.objects.all()
+#        context['comments'] = Comment.objects.all()
+#        return context

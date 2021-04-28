@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post-entry">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.body }}</p>
+    </div>
+    <a class="btn btn-sm btn-primary" href="{% url 'post_edit' post.pk %}">
+        Edit
+    </a>
+    <a class="btn btn-sm btn-danger" href="{% url 'post_delete' post.pk %}">
+        Delete
+    </a>
+    <div style="margin-top: 20px; width: 50%">
+        <h5>Comments:</h5>
+        {% for comment in post.comments.all %}
+            <ul class="list-group">
+              <li class="list-group-item">
+                  <div class="ms-2 me-auto">
+                      <div class="fw-bold">{{ comment.author }} commented:</div>
+                      {{ comment }}
+                  </div>
+              </li>
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock content %}

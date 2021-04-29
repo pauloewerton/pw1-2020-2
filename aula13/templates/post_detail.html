@@ -3,6 +3,8 @@
 {% block content %}
     <div class="post-entry">
         <h2>{{ post.title }}</h2>
+        <img src="{{ post.image.url}}" class="img-fluid img-thumbnail mb-2 mt-2"
+             alt="post image" style="max-height: 300px;">
         <p>{{ post.body }}</p>
     </div>
     <a class="btn btn-sm btn-primary" href="{% url 'post_edit' post.pk %}">

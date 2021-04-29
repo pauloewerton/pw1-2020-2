@@ -4,7 +4,7 @@
 
 {% block content %}
     <h1>New post</h1>
-    <form action="" method="post">{% csrf_token %}
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
         {{ form|crispy }}
         <button class="btn btn-success mt-1" type="submit">Save</button>
     </form>

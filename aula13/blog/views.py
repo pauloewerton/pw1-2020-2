@@ -24,7 +24,7 @@ class BlogDetailView(LoginRequiredMixin, DetailView):
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_new.html'
-    fields = ('title', 'body')
+    fields = ('title', 'image', 'body')
     # login_url = 'login' # necessario no sistema customizado de autenticacao
 
     def form_valid(self, form):
@@ -34,7 +34,7 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
 class BlogUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = 'post_edit.html'
-    fields = ['title', 'body']
+    fields = ['title', 'image', 'body']
 
     def dispatch(self, request, *args, **kwargs):
         obj = self.get_object()
